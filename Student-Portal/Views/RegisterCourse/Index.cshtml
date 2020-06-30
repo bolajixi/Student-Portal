@@ -1,0 +1,45 @@
+﻿@model Student_Portal.Models.RegisterCourse
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Show Registered Couses", "ShowCourse")
+@using (Html.BeginForm("Index", "RegisterCourse", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Register a new course.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @*<div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>*@
+    <div class="form-group">
+
+        @if (ViewBag.RegError != null)
+        {
+            <h5 class="has-error, text-danger">@ViewBag.RegError</h5>
+        }
+        @Html.LabelFor(m => m.CourseId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CourseId, new SelectList(ViewBag.Course, "Value", "Text"), "Select a course to register", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CourseId, "", new { @class = "error, text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
+@*@Html.Partial("_LoginPartial")*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

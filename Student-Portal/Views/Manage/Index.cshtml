@@ -1,0 +1,182 @@
+﻿@model Student_Portal.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col">
+            <center>
+                <h2>@ViewBag.Title.</h2>
+                <h4>Change your account settings</h4>
+            </center>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width:80%">
+        @*First row*@
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input style="max-width:90%" type="text" id="fullname" class="form-control" placeholder="Full Name" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input style="max-width:90%" type="text" id="dob" class="form-control" placeholder="Date of Birth" />
+                </div>
+            </div>
+        </div>
+
+        @*Second row*@
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="phonenum">Phone Number</label>
+                    <input style="max-width:90%" type="text" id="phonenum" class="form-control" placeholder="Phone Number" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Email ID" TextMode="Email"></asp:TextBox>
+                    <label for="email">Email</label>
+                    <input style="max-width:90%" type="text" id="email" class="form-control" placeholder="Email" />
+                </div>
+            </div>
+        </div>
+
+        @*Third row*@
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input style="max-width:100%" type="text" id="country" class="form-control" placeholder="Country" />
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input style="max-width:100%" type="text" id="city" class="form-control" placeholder="City" />
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input style="max-width:88%" type="text" id="nationality" class="form-control" placeholder="Nationality" />
+                </div>
+            </div>
+        </div>
+
+        @*Fourth row*@
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea style="max-width:95%" type="text" id="city" class="form-control" placeholder="Address"></textarea>
+                </div>
+            </div>
+        </div>
+
+        @*Fifth row*@
+        <div class="row">
+            <div class="col">
+                <hr />
+                <center>
+                    <span class="badge badge-pill badge-info">Login Credentials</span>
+                </center>
+            </div>
+        </div>
+    </div>
+
+
+    <dl class="dl-horizontal">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>External Logins:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>
+        @*
+            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+             Uncomment the following block after you have set up two-factor authentication
+        *@
+        @*
+            <dt>Phone Number:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                }
+            </dd>
+        *@
+        <dt>Two-Factor Authentication:</dt>
+        <dd>
+            <p>
+                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication.
+            </p>
+            @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Enabled
+                        <input type="submit" value="Disable" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Disabled
+                        <input type="submit" value="Enable" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+        </dd>
+    </dl>
+</div>

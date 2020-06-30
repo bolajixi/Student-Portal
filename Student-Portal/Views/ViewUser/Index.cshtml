@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Student_Portal.Models.ViewUserGrid>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Grid</h2>
+
+<p>
+    @Html.ActionLink("Add new Student", "RegisterStudent", "ViewUser", new { @class = "btn btn-info" }) | @Html.ActionLink("Add new faculty", "RegisterFaculty", "ViewUser", new { @class = "btn btn-info" })
+</p>
+<div>
+    @{ 
+        WebGrid webGrid = new WebGrid(source:Model);
+    }
+
+    @webGrid.GetHtml(
+    tableStyle:"table",
+    htmlAttributes: new {@id="webGrid" },
+    columns:webGrid.Columns(
+        //webGrid.Column("Id", "Id"),
+        webGrid.Column(null,null, format: @<input type="hidden" name="Id" value="@item.Id"/>),
+        webGrid.Column("Firstname", "First Name"),
+        webGrid.Column("Lastname", "Last Name"),
+        webGrid.Column("Name", "Role"),
+        webGrid.Column("Email", "Email"),
+        webGrid.Column("Program", "Program"),
+        webGrid.Column("YearOfJoining", "Year Joined"),
+        webGrid.Column(header: "", format: (item) =>
+        {
+            var link = Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" });
+            return link;
+        }),
+        webGrid.Column(header: "", format: (item) =>
+        {
+            var link = Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default" });
+            return link;
+        }),
+        webGrid.Column(header: "", format: (item) =>
+        {
+            var link = Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default" });
+            return link;
+        })
+        )
+
+    )
+</div>
+
