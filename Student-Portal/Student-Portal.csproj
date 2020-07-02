@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202005071827568_v11.Designer.cs">
       <DependentUpon>202005071827568_v11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007022348505_update_rank.cs" />
+    <Compile Include="Migrations\202007022348505_update_rank.Designer.cs">
+      <DependentUpon>202007022348505_update_rank.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005071827568_v11.resx">
       <DependentUpon>202005071827568_v11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007022348505_update_rank.resx">
+      <DependentUpon>202007022348505_update_rank.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

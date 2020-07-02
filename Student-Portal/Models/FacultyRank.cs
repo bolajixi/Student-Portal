@@ -16,6 +16,7 @@ namespace Student_Portal.Models
         public int Id { get; set; }
 
         [Required]
+        [Column("Ranks")]
         [Display(Name ="Faculty Rank")]
         public string Rank { get; set; }
     }
