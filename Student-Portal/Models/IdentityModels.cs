@@ -61,6 +61,8 @@ namespace Student_Portal.Models
 
         public System.Data.Entity.DbSet<Student_Portal.Models.ViewUserGrid> ViewUserGrids { get; set; }
 
+        public System.Data.Entity.DbSet<Student_Portal.Models.FacultyRank> FacultyRanks { get; set; }
+
         //public System.Data.Entity.DbSet<Student_Portal.Models.ViewUserGrid> ViewUserGrids { get; set; }
 
 
