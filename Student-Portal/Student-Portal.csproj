@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\FacultyRankController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegisterCourseController.cs" />
@@ -293,6 +294,11 @@
     <Content Include="Views\ViewUser\RegisterStudent.cshtml" />
     <Content Include="Views\ViewUser\RegisterFaculty.cshtml" />
     <Content Include="Views\Account\AccessDenied.cshtml" />
+    <Content Include="Views\FacultyRank\Create.cshtml" />
+    <Content Include="Views\FacultyRank\Delete.cshtml" />
+    <Content Include="Views\FacultyRank\Details.cshtml" />
+    <Content Include="Views\FacultyRank\Edit.cshtml" />
+    <Content Include="Views\FacultyRank\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
