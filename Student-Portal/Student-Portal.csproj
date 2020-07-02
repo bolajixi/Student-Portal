@@ -206,6 +206,7 @@
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\FacultyRank.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RegisterCourse.cs" />
