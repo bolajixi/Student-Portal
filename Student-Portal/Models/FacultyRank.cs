@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
 
 namespace Student_Portal.Models
 {
@@ -16,7 +15,7 @@ namespace Student_Portal.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-
+        [Required]
         [Display(Name ="Faculty Rank")]
         public string Rank { get; set; }
     }
