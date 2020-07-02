@@ -41,7 +41,7 @@ else
         <div class="form-group">
             @Html.LabelFor(m => m.RoleeName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.RoleeName, new SelectList(ViewBag.Roles, "Value", "Text", "Lecturer"), new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.RoleeName, new SelectList(ViewBag.Roles, "Value", "Text", "Faculty"), new { @class = "form-control" })
             </div>
         </div>
     </div>
