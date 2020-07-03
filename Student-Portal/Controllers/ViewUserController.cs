@@ -284,10 +284,10 @@ namespace Student_Portal.Controllers
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
-                    //RankModel.Username = model.Email;
-                    //RankModel.RankId = model.Rank;
-                    //db.facultyAndRanks.Add(RankModel);
-                    //await db.SaveChangesAsync();
+                    RankModel.Username = user.Id;
+                    RankModel.RankId = model.Rank;
+                    db.facultyAndRanks.Add(RankModel);
+                    await db.SaveChangesAsync();
                     ViewBag.FacultySuccess = "Successfully Created "+ user.Firstname+ "as a faculty member.";
                     return RedirectToAction("Index", "ViewUser");
                 }

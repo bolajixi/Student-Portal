@@ -215,9 +215,9 @@
     <Compile Include="Migrations\202007031621168_add faculty rank foreign key.Designer.cs">
       <DependentUpon>202007031621168_add faculty rank foreign key.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007031719201_removed required from username.cs" />
-    <Compile Include="Migrations\202007031719201_removed required from username.Designer.cs">
-      <DependentUpon>202007031719201_removed required from username.cs</DependentUpon>
+    <Compile Include="Migrations\202007031753525_removed required from username.cs" />
+    <Compile Include="Migrations\202007031753525_removed required from username.Designer.cs">
+      <DependentUpon>202007031753525_removed required from username.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
@@ -355,8 +355,8 @@
     <EmbeddedResource Include="Migrations\202007031621168_add faculty rank foreign key.resx">
       <DependentUpon>202007031621168_add faculty rank foreign key.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007031719201_removed required from username.resx">
-      <DependentUpon>202007031719201_removed required from username.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007031753525_removed required from username.resx">
+      <DependentUpon>202007031753525_removed required from username.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -254,10 +254,10 @@ namespace Student_Portal.Controllers
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
-                    //RankModel.Username = model.Email;
-                    //RankModel.RankId = model.Rank;
-                    //db.facultyAndRanks.Add(RankModel);
-                    //await db.SaveChangesAsync();
+                    RankModel.Username = user.Id;
+                    RankModel.RankId = model.Rank;
+                    db.facultyAndRanks.Add(RankModel);
+                    await db.SaveChangesAsync();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

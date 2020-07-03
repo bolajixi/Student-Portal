@@ -13,7 +13,7 @@ namespace Student_Portal.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202007031719201_removed required from username"; }
+            get { return "202007031753525_removed required from username"; }
         }
         
         string IMigrationMetadata.Source
