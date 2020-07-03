@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
     <hr />
-    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+    @Html.ValidationSummary("", new { @class = "text-danger" })
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
@@ -169,32 +169,6 @@
             </div>
         </div>
     }
-    //Popup modal
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Error</h4>
-                </div>
-                <div class="modal-body">
-                    @if (Html.ValidationSummary("", new { @class = "text-danger" }) != null)
-                    {
-                        <p style="text-align:center; font-size:medium">Some fields are incomplete.</p>
-                    }
-                    <br />
-                    <br />
-                    <br />
-                </div>
-                @*<div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>*@
-            </div>
-
-        </div>
-    </div>
 }
 
 @section Scripts {

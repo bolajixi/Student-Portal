@@ -16,6 +16,8 @@ namespace Student_Portal.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
@@ -226,7 +228,7 @@ namespace Student_Portal.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RegisterFaculty(RegisterViewModel model)
+        public async Task<ActionResult> RegisterFaculty(RegisterFacultyViewModel model, FacultyAndRank RankModel)
         {
             if (ModelState.IsValid)
             {
@@ -252,6 +254,10 @@ namespace Student_Portal.Controllers
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
+                    //RankModel.Username = model.Email;
+                    //RankModel.RankId = model.Rank;
+                    //db.facultyAndRanks.Add(RankModel);
+                    //await db.SaveChangesAsync();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -471,7 +477,8 @@ namespace Student_Portal.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, 
+                var user = new ApplicationUser { 
+                    UserName = model.Email, 
                     Email = model.Email,
                     Firstname = model.Firstname,
                     Lastname = model.Lastname,

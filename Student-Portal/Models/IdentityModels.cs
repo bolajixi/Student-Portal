@@ -54,6 +54,8 @@ namespace Student_Portal.Models
         public DbSet<Course> Course { get; set; }
         public DbSet<RegisterCourse> RegisterCourse { get; set; }
 
+        public DbSet<FacultyAndRank> facultyAndRanks { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

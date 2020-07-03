@@ -258,7 +258,7 @@ namespace Student_Portal.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RegisterFaculty(RegisterViewModel model)
+        public async Task<ActionResult> RegisterFaculty(RegisterFacultyViewModel model, FacultyAndRank RankModel)
         {
             if (ModelState.IsValid)
             {
@@ -279,12 +279,15 @@ namespace Student_Portal.Controllers
                     Program = model.Program,
                     YearOfJoining = model.YearOfJoining,
                     PhoneNumber = model.Mobile,
-                    //Rank = model.Rank
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
+                    //RankModel.Username = model.Email;
+                    //RankModel.RankId = model.Rank;
+                    //db.facultyAndRanks.Add(RankModel);
+                    //await db.SaveChangesAsync();
                     ViewBag.FacultySuccess = "Successfully Created "+ user.Firstname+ "as a faculty member.";
                     return RedirectToAction("Index", "ViewUser");
                 }
