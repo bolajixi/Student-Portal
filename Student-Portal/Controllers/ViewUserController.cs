@@ -250,6 +250,11 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
+
+            List<SelectListItem> RankList = new List<SelectListItem>();
+            foreach (var rank in db.FacultyRanks)
+                list.Add(new SelectListItem() { Value = rank.Rank, Text = rank.Rank });
+            ViewBag.Ranks = RankList;
             return View();
         }
 
@@ -291,7 +296,13 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
-            // If we got this far, something failed, redisplay form
+
+
+            List<SelectListItem> RankList = new List<SelectListItem>();
+            foreach (var rank in db.FacultyRanks)
+                list.Add(new SelectListItem() { Value = rank.Rank, Text = rank.Rank });
+            ViewBag.Ranks = RankList;
+
             return View(model);
         }
 
