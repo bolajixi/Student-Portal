@@ -251,10 +251,7 @@ namespace Student_Portal.Controllers
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
 
-            List<SelectListItem> RankList = new List<SelectListItem>();
-            foreach (var rank in db.FacultyRanks)
-                list.Add(new SelectListItem() { Value = rank.Rank, Text = rank.Rank });
-            ViewBag.Ranks = RankList;
+            ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
             return View();
         }
 
@@ -281,7 +278,8 @@ namespace Student_Portal.Controllers
                     Institution = model.Institution,
                     Program = model.Program,
                     YearOfJoining = model.YearOfJoining,
-                    PhoneNumber = model.Mobile
+                    PhoneNumber = model.Mobile,
+                    //Rank = model.Rank
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -297,11 +295,7 @@ namespace Student_Portal.Controllers
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
 
-
-            List<SelectListItem> RankList = new List<SelectListItem>();
-            foreach (var rank in db.FacultyRanks)
-                list.Add(new SelectListItem() { Value = rank.Rank, Text = rank.Rank });
-            ViewBag.Ranks = RankList;
+            ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
 
             return View(model);
         }
