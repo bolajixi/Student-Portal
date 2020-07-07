@@ -268,8 +268,6 @@ namespace Student_Portal.Controllers
                     Email = model.Email,
                     Firstname = model.Firstname,
                     Lastname = model.Lastname,
-                    Fathername = model.Fathername,
-                    Mothername = model.Mothername,
                     DateOfBirth = model.DateOfBirth,
                     Address1 = model.Address1,
                     Address2 = model.Address2,

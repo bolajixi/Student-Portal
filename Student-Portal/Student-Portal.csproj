@@ -219,6 +219,10 @@
     <Compile Include="Migrations\202007031753525_removed required from username.Designer.cs">
       <DependentUpon>202007031753525_removed required from username.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007072343330_removed mothername and fathername for faclty.cs" />
+    <Compile Include="Migrations\202007072343330_removed mothername and fathername for faclty.Designer.cs">
+      <DependentUpon>202007072343330_removed mothername and fathername for faclty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007031753525_removed required from username.resx">
       <DependentUpon>202007031753525_removed required from username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007072343330_removed mothername and fathername for faclty.resx">
+      <DependentUpon>202007072343330_removed mothername and fathername for faclty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
