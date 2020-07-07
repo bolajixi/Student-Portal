@@ -253,13 +253,6 @@ namespace Student_Portal.Models
         [Display(Name = "Last Name")]
         public string Lastname { get; set; }
 
-        [Required(ErrorMessage = "Father's Name is required")]
-        [Display(Name = "Father's/Guardian's Name")]
-        public string Fathername { get; set; }
-
-        [Display(Name = "Mother's Name")]
-        public string Mothername { get; set; }
-
         [Required]
         [Display(Name = "Date Of Birth")]
         [DataType(DataType.Date, ErrorMessage = "Invalid Date")]
@@ -298,7 +291,7 @@ namespace Student_Portal.Models
         public string Institution { get; set; }
 
         [Required]
-        [Display(Name = "Program Name")]
+        [Display(Name = "Department")]
         public string Program { get; set; }
 
         [Required]
