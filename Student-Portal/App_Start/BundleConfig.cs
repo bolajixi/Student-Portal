@@ -28,7 +28,17 @@ namespace Student_Portal
 
             #region Template design
             bundles.Add(new ScriptBundle("~/template/js").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/vendor/jquery-2.2.4.min.js",
+                        "~/Scripts/popper.min.js",
+                        "~/Scripts/vendor/bootstrap.min.js",
+                        "~/Scripts/vendor/owl.carousel.min.js",
+                        "~/Scripts/vendor/metisMenu.min.js",
+                        "~/Scripts/vendor/jquery.slimscroll.min.js",
+                        "~/Scripts/vendor/jquery.slicknav.min.js",
+                        "~/Scripts/vendor/line-chart.js",
+                        "~/Scripts/vendor/pie-chart.js",
+                        "~/Scripts/vendor/plugins.min.js",
+                        "~/Scripts/vendor/scripts.min.js"));
 
             bundles.Add(new StyleBundle("~/template/css").Include(
                       "~/Content/css/bootstrap.min.css",
