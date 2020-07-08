@@ -25,6 +25,24 @@ namespace Student_Portal
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-spacelab.css",
                       "~/Content/site.css"));
+
+            #region Template design
+            bundles.Add(new ScriptBundle("~/template/js").Include(
+                        "~/Scripts/jquery.validate*"));
+
+            bundles.Add(new StyleBundle("~/template/css").Include(
+                      "~/Content/css/bootstrap.min.css",
+                      "~/Content/css/font-awesome.min.css",
+                      "~/Content/css/themify-icons.css",
+                      "~/Content/css/metisMenu.css",
+                      "~/Content/css/owl.carousel.min.css",
+                      "~/Content/css/slicknav.min.css",
+                      "~/Content/css/typography.css",
+                      "~/Content/css/default-css.css",
+                      "~/Content/css/styles.css",
+                      "~/Content/css/responsive.css"));
+
+            #endregion
         }
     }
 }
