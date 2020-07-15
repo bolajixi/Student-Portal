@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>srtdash - ICO Dashboard</title>
+    <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="~/Content/images/icon/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="~/favicon.ico">
 
     @Styles.Render("~/template/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -49,26 +49,28 @@
                                 </ul>
                             </li>
 
-                            <li>@Html.ActionLink("Homes", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
                             @if (User.Identity.IsAuthenticated)
                             {
                                 if (User.IsInRole("Admin"))
-                                {@*<li><a href="maps.html"><i class="ti-map-alt"></i> <span>Roles</span></a></li>
-                    <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Courses</span></a></li>
-                    <li><a href="invoice.html"><i class="ti-receipt"></i> <span>View Users</span></a></li>
-                    <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Faculty Ranks</span></a></li>*@
-
-                                                    <li>@Html.ActionLink("Roles", "Index", "Role")</li>
-                                                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                                                    <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
-                                                    <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }
-                                                                    else if (User.IsInRole("Student"))
-                                                                    {
-                                                    <li>@Html.ActionLink("Register Course", "Index", "RegisterCourse")</li>}
-                                                                }
+                                {
+                                    @*<li>@Html.ActionLink("Roles", "Index", "Role")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                                    <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
+                                    <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
+                                    <li><a href="/Role"><i class="ti-receipt"></i><span>Roles</span></a></li>
+                                    <li><a href="/Courses"><i class="ti-receipt"></i><span>Courses</span></a></li>
+                                    <li><a href="/ViewUser"><i class="ti-receipt"></i><span>View Users</span></a></li>
+                                    <li><a href="/FacultyRank"><i class="ti-receipt"></i><span>Faculty Ranks</span></a></li>
+                                }
+                                else if (User.IsInRole("Student"))
+                                {
+                                    <li>@Html.ActionLink("Register Course", "Index", "RegisterCourse")</li>
+                                }
+                            }
                         </ul>
                     </nav>
                 </div>
@@ -250,7 +252,7 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Home</a></li>
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                 <li><span>@ViewBag.Title</span></li>
                             </ul>
                         </div>
