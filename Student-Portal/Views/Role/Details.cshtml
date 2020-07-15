@@ -1,7 +1,7 @@
 ﻿@model Student_Portal.Models.RoleViewModel
 
 @{
-    ViewBag.Title = "Role Details";
+    ViewBag.Title = "Role";
 }
 
     <div class="row justify-content-md-center">
@@ -10,13 +10,13 @@
                 <div class="card-body">
                     <div>
                         <dl class="dl-horizontal">
-                            <h5>
+                            <dt>
                                 Role Name:
-                            </h5>
+                            </dt>
 
-                            <h2>
+                            <dd>
                                 @Html.DisplayFor(model => model.Name, new { @class = "pull-right" })
-                            </h2>
+                            </dd>
 
                         </dl>
                     </div>
