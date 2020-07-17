@@ -53,6 +53,26 @@ namespace Student_Portal
                       "~/Content/css/styles.css",
                       "~/Content/css/responsive.css"));
 
+            bundles.Add(new ScriptBundle("~/template2/js").Include(
+                        "~/Content2/lib/jquery/jquery.min.js",
+                        "~/Content2/lib/jquery/jquery-migrate.min.js",
+                        "~/Content2/lib/popper/popper.min.js",
+                        "~/Content2/lib/bootstrap/js/bootstrap.min.js",
+                        "~/Content2/lib/easing/easing.min.js",
+                        "~/Content2/lib/owlcarousel/owl.carousel.min.js",
+                        "~/Content2/lib/scrollreveal/scrollreveal.min.js",
+                        "~/Content2/contactform/contactform.js",
+                        "~/Content2/js/main.js"));
+
+            bundles.Add(new StyleBundle("~/template2/css").Include(
+                      "~/Content2/lib/bootstrap/css/bootstrap.min.css",
+                      "~/Content2/lib/font-awesome/css/font-awesome.min.css",
+                      "~/Content2/lib/animate/animate.min.css",
+                      "~/Content2/lib/ionicons/css/ionicons.min.css",
+                      "~/Content2/lib/owlcarousel/assets/owl.carousel.min.css",
+                      "~/Content2/css/style.css",
+                      "~/Content2/lib/bootstrap/css/bootstrap.min.css"));
+
             #endregion
         }
     }
