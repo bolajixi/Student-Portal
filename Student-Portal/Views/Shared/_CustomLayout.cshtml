@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="~/favicon.ico">
+    <link href="~/Content2/img/favicon.png" rel="icon">
 
     @Styles.Render("~/template/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -33,7 +33,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="~/Content/images/icon/logo.png" alt="logo"></a>
+                    <a href="/Home/Index"><img src="~/Content/images/icon/logo.png" alt="CovenantUniversity"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -42,16 +42,7 @@
                         <ul class="metismenu" id="menu">
                             <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
-                                <ul class="collapse">
-                                    <li class="active"><a href="index.html">ICO dashboard</a></li>
-                                    <li><a href="index2.html">Ecommerce dashboard</a></li>
-                                    <li><a href="index3.html">SEO dashboard</a></li>
-                                </ul>
                             </li>
-
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -61,14 +52,14 @@
                                     <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
                                     <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
                                     <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
-                                    <li><a href="/Role"><i class="ti-receipt"></i><span>Roles</span></a></li>
-                                    <li><a href="/Courses"><i class="ti-receipt"></i><span>Courses</span></a></li>
-                                    <li><a href="/ViewUser"><i class="ti-receipt"></i><span>View Users</span></a></li>
-                                    <li><a href="/FacultyRank"><i class="ti-receipt"></i><span>Faculty Ranks</span></a></li>
+                                    <li><a href="/Role"><i class="fa fa-user"></i><span>Roles</span></a></li>
+                                    <li><a href="/Courses"><i class="fa fa-cubes"></i><span>Courses</span></a></li>
+                                    <li><a href="/ViewUser"><i class="fa fa-users"></i><span>View Users</span></a></li>
+                                    <li><a href="/FacultyRank"><i class="fa fa-university"></i><span>Faculty Ranks</span></a></li>
                                 }
                                 else if (User.IsInRole("Student"))
                                 {
-                                    <li>@Html.ActionLink("Register Course", "Index", "RegisterCourse")</li>
+                                    <li><a href="/RegisterCourse"><i class="fa fa-book"></i><span>Register Course</span></a></li>
                                 }
                             }
                         </ul>
@@ -268,7 +259,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+                <p>© Copyright CovenantUniversity. All Rights Reserved.</p>
             </div>
         </footer>
         <!-- footer area end-->
