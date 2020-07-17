@@ -1,31 +1,668 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_CustomLayout2.cshtml";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!--/ Carousel Star /-->
+<div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(../../Content2/img/slide-1.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">Research </span>
+                                        <br> Institutes, Labs & Centers
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(../../Content2/img/slide-2.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">Academics</span> 
+                                        <br> & Life long learning
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(../../Content2/img/slide-3.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">Campus Life </span>
+                                        <br> & Living
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<!--/ Carousel end /-->
+<!--/ Services Star /-->
+<section class="section-services section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Campus Life</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-box-c foo">
+                    <div class="card-header-c d-flex">
+                        <div class="card-box-ico">
+                            <span class="fa fa-gamepad"></span>
+                        </div>
+                        <div class="card-title-c align-self-center">
+                            <h2 class="title-c">Lifestyle</h2>
+                        </div>
+                    </div>
+                    <div class="card-body-c">
+                        <p class="content-c">
+                            A residential campus with diverse housing, exceptional dining, health care and over 600 student organizations
+                        </p>
+                    </div>
+                    <div class="card-footer-c">
+                        <a href="#" class="link-c link-icon">
+                            Read more
+                            <span class="ion-ios-arrow-forward"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-box-c foo">
+                    <div class="card-header-c d-flex">
+                        <div class="card-box-ico">
+                            <span class="fa fa-paint-brush""></span>
+                        </div>
+                        <div class="card-title-c align-self-center">
+                            <h2 class="title-c">Arts & Culture</h2>
+                        </div>
+                    </div>
+                    <div class="card-body-c">
+                        <p class="content-c">
+                            A rich tradition of fostering creativity and a vibrant arts district on campus
+                        </p>
+                    </div>
+                    <div class="card-footer-c">
+                        <a href="#" class="link-c link-icon">
+                            Read more
+                            <span class="ion-ios-arrow-forward"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-box-c foo">
+                    <div class="card-header-c d-flex">
+                        <div class="card-box-ico">
+                            <span class="fa fa-home"></span>
+                        </div>
+                        <div class="card-title-c align-self-center">
+                            <h2 class="title-c">Athletics & Fitness</h2>
+                        </div>
+                    </div>
+                    <div class="card-body-c">
+                        <p class="content-c">
+                            36 varsity sports, 32 club sports and state-of-the-art recreational facilities and fitness programs
+                        </p>
+                    </div>
+                    <div class="card-footer-c">
+                        <a href="#" class="link-c link-icon">
+                            Read more
+                            <span class="ion-ios-arrow-forward"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+<!--/ Services End /-->
+<!--/ Property Star /-->
+<section class="section-property section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">About</h2>
+                    </div>
+                    <div class="title-link">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="property-carousel" class="owl-carousel owl-theme">
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/Content2/img/property-3.jpg" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        206 Mount
+                                        <br> Olive Road Two
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-body-a">
+                                <div class="price-box d-flex">
+                                    <span class="price-a">rent | $ 12.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/Content2/img/property-3.jpg" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                         Students
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-body-a">
+                                <div class="price-box d-flex">
+                                    <span class="price-a">15,424</span>
+                                </div>                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/Content2/img/property-7.jpg" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        Faculty
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-body-a">
+                                <div class="price-box d-flex">
+                                    <span class="price-a">2,219</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/Content2/img/property-10.jpg" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        Opened in
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-body-a">
+                                <div class="price-box d-flex">
+                                    <span class="price-a">2002</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>
+<!--/ Property End /-->
+<!--/ Agents Star /-->
+<section class="section-agents section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Top Lecturers</h2>
+                    </div>
+                    <div class="title-link">
+                        <a href="#">
+                            All Lecturers
+                            <span class="ion-ios-arrow-forward"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-box-d">
+                    <div class="card-img-d">
+                        <img src="~/Content2/img/agent-4.jpg" alt="" class="img-d img-fluid">
+                    </div>
+                    <div class="card-overlay card-overlay-hover">
+                        <div class="card-header-d">
+                            <div class="card-title-d align-self-center">
+                                <h3 class="title-d">
+                                    <a href="#" class="link-two">
+                                        Margaret Sotillo
+                                        <br> Watson
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="card-body-d">
+                            <p class="content-d color-text-a">
+                                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                            </p>
+                            <div class="info-agents color-a">
+                                <p>
+                                    <strong>Phone: </strong> +234 803 732 892
+                                </p>
+                                <p>
+                                    <strong>Email: </strong> margaret.s@lec.cu.edu.ng
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer-d">
+                            <div class="socials-footer d-flex justify-content-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-box-d">
+                    <div class="card-img-d">
+                        <img src="~/Content2/img/agent-1.jpg" alt="" class="img-d img-fluid">
+                    </div>
+                    <div class="card-overlay card-overlay-hover">
+                        <div class="card-header-d">
+                            <div class="card-title-d align-self-center">
+                                <h3 class="title-d">
+                                    <a href="#" class="link-two">
+                                        Stiven Spilver
+                                        <br> Jones
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="card-body-d">
+                            <p class="content-d color-text-a">
+                                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                            </p>
+                            <div class="info-agents color-a">
+                                <p>
+                                    <strong>Phone: </strong> +234 803 569 452
+                                </p>
+                                <p>
+                                    <strong>Email: </strong> stiven.j@lec.cu.edu.ng
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer-d">
+                            <div class="socials-footer d-flex justify-content-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-box-d">
+                    <div class="card-img-d">
+                        <img src="~/Content2/img/agent-5.jpg" alt="" class="img-d img-fluid">
+                    </div>
+                    <div class="card-overlay card-overlay-hover">
+                        <div class="card-header-d">
+                            <div class="card-title-d align-self-center">
+                                <h3 class="title-d">
+                                    <a href="#" class="link-two">
+                                        Femi Martins
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="card-body-d">
+                            <p class="content-d color-text-a">
+                                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                            </p>
+                            <div class="info-agents color-a">
+                                <p>
+                                    <strong>Phone: </strong> +234 803 973 224
+                                </p>
+                                <p>
+                                    <strong>Email: </strong> femi.m@lec.cu.edu.ng
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer-d">
+                            <div class="socials-footer d-flex justify-content-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-one">
+                                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<!--/ Agents End /-->
+<!--/ News Star /-->
+<section class="section-news section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Latest News</h2>
+                    </div>
+                    <div class="title-link">
+                        <a href="#">
+                            All News
+                            <span class="ion-ios-arrow-forward"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="new-carousel" class="owl-carousel owl-theme">
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/Content2/img/post-2.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+                            <div class="card-category-b">
+                                <a href="#" class="category-b">Humanities</a>
+                            </div>
+                            <div class="card-title-b">
+                                <h2 class="title-2">
+                                    <a href="#">
+                                        Why Confederate monuments are
+                                        <br> coming down now
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-date">
+                                <span class="date-b">17 Jul. 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/Content2/img/post-5.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+                            <div class="card-category-b">
+                                <a href="#" class="category-b">Social Sciences</a>
+                            </div>
+                            <div class="card-title-b">
+                                <h2 class="title-2">
+                                    <a href="#">
+                                        Journeying through the
+                                        <br> pandemic
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-date">
+                                <span class="date-b">17 Jul. 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/Content2/img/post-7.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+                            <div class="card-category-b">
+                                <a href="#" class="category-b">Science & Technology</a>
+                            </div>
+                            <div class="card-title-b">
+                                <h2 class="title-2">
+                                    <a href="blog-single.html">
+                                        Protecting drinking water
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-date">
+                                <span class="date-b">17 Jul. 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/Content2/img/post-3.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+                            <div class="card-category-b">
+                                <a href="#" class="category-b">Science & Technology</a>
+                            </div>
+                            <div class="card-title-b">
+                                <h2 class="title-2">
+                                    <a href="#">
+                                        Erasing memories to
+                                        <br> stop drug relapse
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="card-date">
+                                <span class="date-b">17 Jul. 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ News End /-->
+<!--/ Testimonials Star /-->
+<section class="section-testimonials section-t8 nav-arrow-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Testimonials</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+            <div class="carousel-item-a">
+                <div class="testimonials-box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-img">
+                                <img src="~/Content2/img/testimonial-1.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-ico">
+                                <span class="ion-ios-quote"></span>
+                            </div>
+                            <div class="testimonials-content">
+                                <p class="testimonial-text">
+                                    “Move about the world and make as much of a difference and as much change as you can.”
+                                </p>
+                            </div>
+                            <div class="testimonial-author-box">
+                                <img src="~/Content2/img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
+                                <h5 class="testimonial-author">Alma Flores-Pérez</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-a">
+                <div class="testimonials-box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-img">
+                                <img src="~/Content2/img/testimonial-2.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-ico">
+                                <span class="ion-ios-quote"></span>
+                            </div>
+                            <div class="testimonials-content">
+                                <p class="testimonial-text">
+                                    “Here at Stanford, people are constantly in conversation with one another. During my time as the director of the program in 
+                                    Feminist, Gender, and Sexuality Studies, I saw how faculty and students in different disciplines were incredibly engaged with
+                                    their material and with one another. People are very intellectually generous here.”
+                                </p>
+                            </div>
+                            <div class="testimonial-author-box">
+                                <img src="~/Content2/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
+                                <h5 class="testimonial-author">Heather Hadlock</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Testimonials End /-->
