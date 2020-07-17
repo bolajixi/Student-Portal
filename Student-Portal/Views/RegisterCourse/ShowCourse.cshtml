@@ -1,49 +1,63 @@
 ﻿@model IEnumerable<Student_Portal.Models.ViewModel>
 
 @{
-    ViewBag.Title = "ShowCourse";
+    ViewBag.Title = "Registered Courses";
 }
-
-<h3>Registered Courses</h3>
-
-<p>Total number of Registered Course: @Model.Count()</p>
-<p>Total Units Registered: @Model.Sum(i => i.CourseUnit)</p>
-
-@if (Model.Count() == 0)
+@if (ViewBag.RegSuccess != null)
 {
-    <p>You have not registered any courses. Click @Html.ActionLink("here", "Index", "RegisterCourse") to register a course.</p>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Yayyy!</strong> The course was successfully registered.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span class="fa fa-times"></span>
+        </button>
+    </div>
 }
-else
-{
+<div class="row justify-content-md-center">
+    <div class="col-lg-9 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <p>Total number of Registered Course: @Model.Count()</p>
+                <p>Total Units Registered: @Model.Sum(i => i.CourseUnit)</p>
+                <br />
+                @if (Model.Count() == 0)
+                {
+                    <p>You have not registered any courses. Click @Html.ActionLink("here", "Index", "RegisterCourse") to register a course.</p>
+                }
+                else
+                {
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseUnit)
-        </th>
-        <th></th>
-    </tr>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseUnit)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseUnit)
-            </td>
-        </tr>
-    }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseUnit)
+                                </td>
+                            </tr>
+                        }
 
-</table>
-}
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
