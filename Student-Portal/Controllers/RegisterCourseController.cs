@@ -38,7 +38,8 @@ namespace Student_Portal.Controllers
                     db.RegisterCourse.Add(cour);
                     await db.SaveChangesAsync();
                     ViewBag.Course = new SelectList(db.Course, "CourseId", "CourseName");
-                    return RedirectToAction("Index");
+                    TempData["RegSuccess"] = "Course Successfully registered.";
+                    return RedirectToAction("ShowCourse");
                 }
                 else
                 {
@@ -90,6 +91,7 @@ namespace Student_Portal.Controllers
                                        CourseCode = c.CourseCode,
                                        CourseUnit = c.CourseUnit,
                                    };
+            ViewBag.RegSuccess = TempData["RegSuccess"] as string;
             return View(RegisteredCourse);
 
         }
