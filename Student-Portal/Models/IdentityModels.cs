@@ -35,6 +35,13 @@ namespace Student_Portal.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("Firstname", this.Firstname));
+            userIdentity.AddClaim(new Claim("Lastname", this.Lastname));
+            userIdentity.AddClaim(new Claim("DateOfBirth", this.DateOfBirth));
+            userIdentity.AddClaim(new Claim("City", this.City));
+            userIdentity.AddClaim(new Claim("Country", this.Country));
+            userIdentity.AddClaim(new Claim("Institution", this.Institution));
+            userIdentity.AddClaim(new Claim("Address1", this.Address1));
             return userIdentity;
         }
     }
