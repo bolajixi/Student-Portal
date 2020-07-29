@@ -1,6 +1,11 @@
 ﻿<!doctype html>
 <html class="no-js" lang="en">
-
+@{
+    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+    var FirstName = claims.SingleOrDefault(m => m.Type == "Firstname").Value;
+    var LastName = claims.SingleOrDefault(m => m.Type == "Lastname").Value;
+    var FullName = FirstName + " " + LastName;
+}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -41,6 +46,10 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
+                                <a href="/Role"><i class="fa fa-user"></i><span>@FullName</span></a>
+                            </li>
+                            <li>
+                            <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                             </li>
 
@@ -49,9 +58,9 @@
                                 if (User.IsInRole("Admin"))
                                 {
                                     @*<li>@Html.ActionLink("Roles", "Index", "Role")</li>
-                                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                                    <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
-                                    <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
+                                        <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                                        <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
+                                        <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
                                     <li><a href="/Role"><i class="fa fa-user"></i><span>Roles</span></a></li>
                                     <li><a href="/Courses"><i class="fa fa-cubes"></i><span>Courses</span></a></li>
                                     <li><a href="/ViewUser"><i class="fa fa-users"></i><span>View Users</span></a></li>
@@ -464,7 +473,7 @@
     <!-- start zingchart js -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script>
-    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
         ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
     <!-- all line chart activation -->
     @*<script src="assets/js/line-chart.js"></script>
