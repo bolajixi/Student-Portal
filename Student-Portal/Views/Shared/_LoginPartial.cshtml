@@ -1,4 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
+@{ 
+    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+    var FirstName = "";
+    if (User.Identity.IsAuthenticated)
+    {
+        FirstName = claims.SingleOrDefault(m => m.Type == "Firstname").Value;
+    }
+    else
+    {
+        FirstName = "";
+    }
+}
 
     <div class="col-sm-6 clearfix">
         <div class="user-profile pull-right">
@@ -8,7 +20,7 @@
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
-                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Hello @User.Identity.Name!<i class="fa fa-angle-down"></i></h4>
+                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Hello @FirstName!<i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
                         @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-item", title = "Manage" })
                         <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
