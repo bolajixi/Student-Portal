@@ -1,6 +1,19 @@
 ﻿@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 <html lang="en">
+@{
+    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+    var FirstName = "";
+    if (User.Identity.IsAuthenticated)
+    {
+        FirstName = claims.SingleOrDefault(m => m.Type == "Firstname").Value;
+    }
+    else
+    {
+        FirstName = "";
+    }
+}
+}
 <head>
     <meta charset="utf-8">
     <title>CovenantUniversity</title>
@@ -58,7 +71,7 @@
                         else if (User.IsInRole("Student"))
                         {
                             <li class="nav-item">
-                                 <a class="nav-link" href="/RegisterCourse/Index">Dashboard</a>
+                                <a class="nav-link" href="/RegisterCourse/Index">Dashboard</a>
                             </li>
                         }
                         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -67,7 +80,7 @@
 
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="nav-item">
-                                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+                                    @Html.ActionLink("Hello " + @FirstName + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
                                 </li>
                                 <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-RegisterCourse nav-link">Log off</a></li>
                             </ul>
