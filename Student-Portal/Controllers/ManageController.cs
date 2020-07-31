@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Student_Portal.Models;
@@ -52,7 +55,7 @@ namespace Student_Portal.Controllers
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public async Task<ActionResult> AdditionalSettings(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
@@ -62,7 +65,6 @@ namespace Student_Portal.Controllers
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
-
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
@@ -73,6 +75,63 @@ namespace Student_Portal.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        public ActionResult Settings(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
+                : message == ManageMessageId.Error ? "An error has occurred."
+                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : "";
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            ViewBag.Firstname = currentUser.Firstname;
+            ViewBag.Lastname = currentUser.Lastname;
+            ViewBag.DOB = currentUser.DateOfBirth;
+            ViewBag.Mobile = currentUser.PhoneNumber;
+            ViewBag.Email = currentUser.Email;
+            ViewBag.Country = currentUser.Country;
+            ViewBag.City = currentUser.City;
+            ViewBag.Address = currentUser.Address1;
+            ViewBag.Institution = currentUser.Institution;
+            ViewBag.Program = currentUser.Program;
+            ViewBag.YearOfJoining = currentUser.YearOfJoining;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // GET: Profile Settings
+        public async Task<ActionResult> Settings(Profile model)
+        {
+            if (ModelState.IsValid) 
+            {
+                var user = UserManager.FindById(this.User.Identity.GetUserId().ToString());
+
+                // Update it with the values from the view model
+                user.UserName = model.Email;
+                user.Email = model.Email;
+                user.Firstname = model.Firstname;
+                user.Mothername = model.Mothername;
+                user.DateOfBirth = model.DateOfBirth;
+                user.Address1 = model.Address1;
+                user.Address2 = model.Address2;
+                user.City = model.City;
+                user.Country = model.Country;
+                user.Institution = model.Institution;
+                user.Program = model.Program;
+                user.YearOfJoining = model.YearOfJoining;
+                user.PhoneNumber = model.Mobile;
+
+                // Apply the changes if any to the db
+                UserManager.Update(user);
+            }
+            return View();
         }
 
         //
@@ -142,7 +201,7 @@ namespace Student_Portal.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("AdditionalSettings", "Manage");
         }
 
         //
@@ -157,7 +216,7 @@ namespace Student_Portal.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("AdditionalSettings", "Manage");
         }
 
         //
@@ -187,7 +246,7 @@ namespace Student_Portal.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
+                return RedirectToAction("AdditionalSettings", new { Message = ManageMessageId.AddPhoneSuccess });
             }
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "Failed to verify phone");
@@ -203,14 +262,14 @@ namespace Student_Portal.Controllers
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
             if (!result.Succeeded)
             {
-                return RedirectToAction("Index", new { Message = ManageMessageId.Error });
+                return RedirectToAction("AdditionalSettings", new { Message = ManageMessageId.Error });
             }
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
+            return RedirectToAction("AdditionalSettings", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
         //
@@ -238,7 +297,7 @@ namespace Student_Portal.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Settings", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
             return View(model);
@@ -267,7 +326,7 @@ namespace Student_Portal.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
+                    return RedirectToAction("AdditionalSettings", new { Message = ManageMessageId.SetPasswordSuccess });
                 }
                 AddErrors(result);
             }
