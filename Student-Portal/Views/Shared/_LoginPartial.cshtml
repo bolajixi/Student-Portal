@@ -22,7 +22,7 @@
                     @Html.AntiForgeryToken()
                     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Hello @FirstName!<i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
-                        @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-item", title = "Manage" })
+                        @Html.ActionLink("Manage Account", "Settings", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-item", title = "Manage" })
                         <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
                     </div>
                 }
