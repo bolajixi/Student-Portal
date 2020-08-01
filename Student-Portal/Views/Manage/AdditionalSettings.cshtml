@@ -68,16 +68,19 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Additional Settings</h4>
+                <a href="/Manage/ManageLogins" class="btn btn-outline-info btn-md mb-3">(@Model.Logins.Count) Manage Extenal Logins</a>
+                <br />
                 @if (Model.HasPassword)
                 {
-                    @Html.ActionLink("Change your password", "ChangePassword", new { @class = "btn btn-danger mb-3" })
+                    @*@Html.ActionLink("", "", new { @class = "btn btn-danger mb-3" })*@
+                    <a href="/Manage/ChangePassword" class="btn btn-outline-danger btn-md mb-3">Change your password</a>
                 }
                 else
                 {
                     @Html.ActionLink("Create", "SetPassword")
                 }
-                <br />
-                [@Model.Logins.Count] @Html.ActionLink("Manage Extenal Logins", "ManageLogins")
+                @*[@Model.Logins.Count] @Html.ActionLink("Manage Extenal Logins", "ManageLogins")*@
+
                 <br />
                 <br />
                 <a href="/Manage/Settings" class="btn btn-light mb-3">Back to settings</a>
