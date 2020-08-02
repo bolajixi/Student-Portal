@@ -94,22 +94,27 @@
                 <div class="card-body">
                     <h4 class="header-title">Academic Details</h4>
                     <form class="needs-validation" novalidate="">
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="validationCustom01">Institution</label>
-                                <input type="text" class="form-control" id="validationCustom01" disabled placeholder="Institution" value="@ViewBag.Institution" required="">
+                        @if (Request.IsAuthenticated)
+                        {
+                            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                            var currentUser = manager.FindById(User.Identity.GetUserId());
+                            <div class="form-row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationCustom01">Institution</label>
+                                    <input type="text" class="form-control" id="validationCustom01" disabled placeholder="Institution" value="@currentUser.Institution" required="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label for="validationCustom03">Program</label>
-                                <input type="text" class="form-control" disabled id="validationCustom03" placeholder="Program" value="@ViewBag.Program" required="">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Program</label>
+                                    <input type="text" class="form-control" disabled id="validationCustom03" placeholder="Program" value="@currentUser.Program" required="">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">Joined in</label>
+                                    <input type="text" class="form-control" disabled id="validationCustom04" placeholder="YearOfJoining" value="@currentUser.YearOfJoining" required="">
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="validationCustom04">Joined in</label>
-                                <input type="text" class="form-control" disabled id="validationCustom04" placeholder="YearOfJoining" value="@ViewBag.YearOfJoining" required="">
-                            </div>
-                        </div>
+                        }
                     </form>
                 </div>
             </div>
