@@ -107,7 +107,7 @@ namespace Student_Portal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // GET: Profile Settings
-        public async Task<ActionResult> Settings(Profile model)
+        public ActionResult Settings(ProfileViewModel model)
         {
             if (ModelState.IsValid) 
             {
@@ -123,15 +123,12 @@ namespace Student_Portal.Controllers
                 user.Address2 = model.Address2;
                 user.City = model.City;
                 user.Country = model.Country;
-                user.Institution = model.Institution;
-                user.Program = model.Program;
-                user.YearOfJoining = model.YearOfJoining;
                 user.PhoneNumber = model.Mobile;
 
                 // Apply the changes if any to the db
                 UserManager.Update(user);
             }
-            return View();
+            return View(model);
         }
 
         //
