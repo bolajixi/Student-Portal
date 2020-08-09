@@ -54,6 +54,7 @@ namespace Student_Portal.Models
         [Display(Name = "Address 2")]
         public string Address2 { get; set; }
 
+        [Required]
         [Display(Name = "City/Town")]
         public string City { get; set; }
 
@@ -277,6 +278,7 @@ namespace Student_Portal.Models
         [Display(Name = "Address 2")]
         public string Address2 { get; set; }
 
+        [Required]
         [Display(Name = "City/Town")]
         public string City { get; set; }
 
