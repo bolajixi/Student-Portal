@@ -11,7 +11,7 @@ using Student_Portal.Models;
 
 namespace Student_Portal.Controllers
 {
-    [AccessDeniedAuthorize(Roles = "Admin, Lecturer")]
+    [AccessDeniedAuthorize(Roles = "Admin, Faculty")]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
