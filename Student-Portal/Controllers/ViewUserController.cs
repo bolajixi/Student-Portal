@@ -72,9 +72,18 @@ namespace Student_Portal.Controllers
         }
 
         // GET: ViewUser/Details/5
-        public ActionResult Details(string id)
+        public async Task<ActionResult> Details(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var viewUserGrid = await UserManager.FindByIdAsync(id);
+            if (viewUserGrid == null)
+            {
+                return HttpNotFound();
+            }
+            return View(viewUserGrid);
         }
 
         // GET: ViewUser/Create
