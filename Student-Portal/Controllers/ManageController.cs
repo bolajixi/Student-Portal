@@ -117,6 +117,7 @@ namespace Student_Portal.Controllers
                 user.UserName = model.Email;
                 user.Email = model.Email;
                 user.Firstname = model.Firstname;
+                user.Lastname = model.Lastname;
                 user.Mothername = model.Mothername;
                 user.DateOfBirth = model.DateOfBirth;
                 user.Address1 = model.Address1;
