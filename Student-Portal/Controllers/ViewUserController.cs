@@ -148,6 +148,7 @@ namespace Student_Portal.Controllers
 
         // POST: ViewUser/Delete/5
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id, FormCollection collection)
         {
             if (ModelState.IsValid)
