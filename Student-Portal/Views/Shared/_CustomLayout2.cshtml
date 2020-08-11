@@ -74,6 +74,12 @@
                                 <a class="nav-link" href="/RegisterCourse/Index">Dashboard</a>
                             </li>
                         }
+                        else if (User.IsInRole("Faculty"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Manage/Settings">Dashboard</a>
+                            </li>
+                        }
                         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                         {
                             @Html.AntiForgeryToken()
