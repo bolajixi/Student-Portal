@@ -86,27 +86,6 @@ namespace Student_Portal.Controllers
             return View(viewUserGrid);
         }
 
-        // GET: ViewUser/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ViewUser/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: ViewUser/Edit/5
         public async Task<ActionResult> Edit(string id)
