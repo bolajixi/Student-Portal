@@ -116,13 +116,25 @@ namespace Student_Portal.Controllers
 
         // POST: ViewUser/Edit/5
         [HttpPost]
-
-        public async Task<ActionResult> Edit(string id, FormCollection collection)
+        public async Task<ActionResult> Edit(string id, ApplicationUser model, RoleViewModel roleModel)
         {
             try
             {
-            //TODO: Add update logic here
+                //TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var user = await UserManager.FindByIdAsync(id);
 
+                    user.Email = model.Email;
+                    user.Firstname = model.Firstname;
+                    user.Lastname = model.Lastname;
+                    user.Program = model.Program;
+                    user.YearOfJoining = model.YearOfJoining;
+
+                    UserManager.Update(user);
+
+                }
+                //return View(model);
                 return RedirectToAction("Index");
             }
             catch
