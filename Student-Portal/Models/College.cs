@@ -16,7 +16,7 @@ namespace Student_Portal.Models
 
         [Required(ErrorMessage ="College Name required")]
         [Display(Name ="Collage Name")]
-        public int MyProperty { get; set; }
+        public string CollegeName { get; set; }
 
 
         [Display(Name ="Number of Department")]
