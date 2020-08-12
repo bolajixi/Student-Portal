@@ -11,7 +11,7 @@ using Student_Portal.Models;
 
 namespace Student_Portal.Controllers
 {
-    [AccessDeniedAuthorize(Roles = "Admin, Faculty")]
+    [AccessDeniedAuthorize(Roles = "Admin, Faculty, Full Professor, Associate Professor, Assistant Professor")]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,7 +19,8 @@ namespace Student_Portal.Controllers
         // GET: Courses
         public async Task<ActionResult> Index()
         {
-            return View(await db.Course.ToListAsync());
+            var courses = db.Course.Include(d => d.Departments);
+            return View(await courses.ToListAsync());
         }
 
         // GET: Courses/Details/5
@@ -40,6 +41,7 @@ namespace Student_Portal.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DeptID", "DeptName");
             return View();
         }
 
@@ -48,7 +50,7 @@ namespace Student_Portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit")] Course course)
+        public async Task<ActionResult> Create([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit,DepartmentID")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +60,7 @@ namespace Student_Portal.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DeptID", "DeptName", course.DepartmentID);
             return View(course);
         }
 
@@ -73,6 +76,7 @@ namespace Student_Portal.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DeptID", "DeptName", course.DepartmentID);
             return View(course);
         }
 
@@ -81,7 +85,7 @@ namespace Student_Portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit")] Course course)
+        public async Task<ActionResult> Edit([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit,DepartmentID")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +93,7 @@ namespace Student_Portal.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DeptID", "DeptName", course.DepartmentID);
             return View(course);
         }
 
