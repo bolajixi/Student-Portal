@@ -28,5 +28,10 @@ namespace Student_Portal.Models
         [Display(Name = "Course Unit")]
         [Range(0,3,ErrorMessage = "Enter a unit between 0 and 3")]
         public int CourseUnit { get; set; }
+
+        [ForeignKey("Departments")]
+        [Display(Name = "Department Name")]
+        public int DepartmentID { get; set; }
+        public virtual Departments Departments { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Student_Portal.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage ="College Name required")]
-        [Display(Name ="Collage Name")]
+        [Display(Name ="College Name")]
         public string CollegeName { get; set; }
 
         [Required(ErrorMessage = "College Code required")]
@@ -25,5 +25,7 @@ namespace Student_Portal.Models
 
         [Display(Name ="Number of Department")]
         public int numDept { get; set; }
+
+        public virtual ICollection<Departments> Departments { get; set; }
     }
 }
