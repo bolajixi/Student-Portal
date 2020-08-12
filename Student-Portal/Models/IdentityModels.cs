@@ -61,8 +61,6 @@ namespace Student_Portal.Models
         public DbSet<Course> Course { get; set; }
         public DbSet<RegisterCourse> RegisterCourse { get; set; }
 
-        public DbSet<FacultyAndRank> facultyAndRanks { get; set; }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -70,7 +68,6 @@ namespace Student_Portal.Models
 
         public System.Data.Entity.DbSet<Student_Portal.Models.ViewUserGrid> ViewUserGrids { get; set; }
 
-        public System.Data.Entity.DbSet<Student_Portal.Models.FacultyRank> FacultyRanks { get; set; }
 
         public System.Data.Entity.DbSet<Student_Portal.Models.College> Colleges { get; set; }
 
