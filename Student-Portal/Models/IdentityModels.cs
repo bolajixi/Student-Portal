@@ -71,6 +71,8 @@ namespace Student_Portal.Models
 
         public System.Data.Entity.DbSet<Student_Portal.Models.College> Colleges { get; set; }
 
+        public System.Data.Entity.DbSet<Student_Portal.Models.Departments> Departments { get; set; }
+
         //public System.Data.Entity.DbSet<Student_Portal.Models.ViewUserGrid> ViewUserGrids { get; set; }
 
 
