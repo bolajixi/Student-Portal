@@ -232,9 +232,9 @@
     <Compile Include="Migrations\202008091846392_require city.Designer.cs">
       <DependentUpon>202008091846392_require city.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008120919116_added college.cs" />
-    <Compile Include="Migrations\202008120919116_added college.Designer.cs">
-      <DependentUpon>202008120919116_added college.cs</DependentUpon>
+    <Compile Include="Migrations\202008121000380_added college.cs" />
+    <Compile Include="Migrations\202008121000380_added college.Designer.cs">
+      <DependentUpon>202008121000380_added college.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
@@ -552,8 +552,8 @@
     <EmbeddedResource Include="Migrations\202008091846392_require city.resx">
       <DependentUpon>202008091846392_require city.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008120919116_added college.resx">
-      <DependentUpon>202008120919116_added college.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008121000380_added college.resx">
+      <DependentUpon>202008121000380_added college.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
