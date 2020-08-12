@@ -18,6 +18,10 @@ namespace Student_Portal.Models
         [Display(Name ="Collage Name")]
         public string CollegeName { get; set; }
 
+        [Required(ErrorMessage = "College Code required")]
+        [Display(Name = "Collage Code")]
+        public string CollegeCode { get; set; }
+
 
         [Display(Name ="Number of Department")]
         public int numDept { get; set; }
