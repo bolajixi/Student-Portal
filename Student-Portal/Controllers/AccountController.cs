@@ -159,6 +159,8 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
+            list.RemoveRange(0, 4);
+            list.RemoveRange(1, 3);
             return View();
         }
 
@@ -220,6 +222,8 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
+            list.RemoveRange(0, 4);
+            list.RemoveRange(1, 3);
             return View();
         }
 
