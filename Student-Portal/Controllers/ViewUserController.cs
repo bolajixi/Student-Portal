@@ -196,6 +196,8 @@ namespace Student_Portal.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
+            list.RemoveRange(0, 4);
+            list.RemoveRange(1, 3);
             ViewBag.Roles = list;
             return View();
         }
@@ -239,6 +241,8 @@ namespace Student_Portal.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
+            list.RemoveRange(0, 4);
+            list.RemoveRange(1, 3);
             ViewBag.Roles = list;
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -251,15 +255,14 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
-
-            ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
+            list.RemoveRange(4, 2);
             return View();
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RegisterFaculty(RegisterFacultyViewModel model, FacultyAndRank RankModel)
+        public async Task<ActionResult> RegisterFaculty(RegisterFacultyViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -283,10 +286,6 @@ namespace Student_Portal.Controllers
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
-                    RankModel.Username = user.Id;
-                    RankModel.RankId = model.Rank;
-                    db.facultyAndRanks.Add(RankModel);
-                    await db.SaveChangesAsync();
                     ViewBag.FacultySuccess = "Successfully Created "+ user.Firstname+ "as a faculty member.";
                     return RedirectToAction("Index", "ViewUser");
                 }
@@ -295,9 +294,10 @@ namespace Student_Portal.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
+            list.RemoveRange(4, 2);
             ViewBag.Roles = list;
 
-            ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
+            //ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
 
             return View(model);
         }
