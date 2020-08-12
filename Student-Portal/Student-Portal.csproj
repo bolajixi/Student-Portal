@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CollegeController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\FacultyRankController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -231,9 +232,14 @@
     <Compile Include="Migrations\202008091846392_require city.Designer.cs">
       <DependentUpon>202008091846392_require city.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008120919116_added college.cs" />
+    <Compile Include="Migrations\202008120919116_added college.Designer.cs">
+      <DependentUpon>202008120919116_added college.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\College.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\FacultyAndRank.cs" />
     <Compile Include="Models\FacultyRank.cs" />
@@ -490,6 +496,11 @@
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Shared\_CustomLayout2.cshtml" />
     <Content Include="Views\Manage\Settings.cshtml" />
+    <Content Include="Views\College\Create.cshtml" />
+    <Content Include="Views\College\Delete.cshtml" />
+    <Content Include="Views\College\Details.cshtml" />
+    <Content Include="Views\College\Edit.cshtml" />
+    <Content Include="Views\College\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -540,6 +551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008091846392_require city.resx">
       <DependentUpon>202008091846392_require city.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008120919116_added college.resx">
+      <DependentUpon>202008120919116_added college.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
