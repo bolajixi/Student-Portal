@@ -17,6 +17,9 @@
                         <table class="table table-hover table-bordered">
                             <thead class="text-uppercase">
                                 <tr>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Departments.DeptName)
+                                    </th>
                                     <th scope="col" scope="col">
                                         @Html.DisplayNameFor(model => model.CourseName)
                                         </thscope="col"scope="col">
@@ -34,6 +37,9 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Departments.DeptName)
+                                    </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.CourseName)
                                     </td>
