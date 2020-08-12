@@ -44,12 +44,6 @@ else
                 @Html.DropDownListFor(m => m.RoleeName, new SelectList(ViewBag.Roles, "Value", "Text", "Faculty"), new { @class = "form-control" })
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Rank, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.Rank, new SelectList(ViewBag.Ranks, "Value", "Text", "Instructor"), new { @class = "form-control" })
-            </div>
-        </div>
     </div>
 
     <div>
