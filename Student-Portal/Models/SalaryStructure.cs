@@ -58,10 +58,6 @@ namespace Student_Portal.Models
         [Display(Name ="Net Salary")]
         public int NetSalary { get; set; }
 
-
-        [ForeignKey("StructId")]
-        public ICollection<RegisterFacultyViewModel> registerFacultyViewModels { get; set; }
-
         public ICollection<Salary> Salaries { get; set; }
     }
 }
