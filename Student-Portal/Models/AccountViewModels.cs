@@ -299,6 +299,8 @@ namespace Student_Portal.Models
         [Required]
         [Display(Name = "Year of Joining")]
         public string YearOfJoining { get; set; }
+
+        public virtual Salary Salary { get; set; }
     }
 
     public class ResetPasswordViewModel
