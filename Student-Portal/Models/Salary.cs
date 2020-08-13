@@ -65,5 +65,8 @@ namespace Student_Portal.Models
         public int StructId { get; set; }
 
         public SalaryStructure SalaryStructure { get; set; }
+
+        [ForeignKey("StructId")]
+        public ICollection<RegisterFacultyViewModel> registerFacultyViewModels { get; set; }
     }
 }
