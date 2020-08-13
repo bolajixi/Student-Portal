@@ -99,6 +99,10 @@ namespace Student_Portal.Controllers
             {
                 return HttpNotFound();
             }
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var rolee in RoleManager.Roles)
+                list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
+            ViewBag.Roles = list;
             return View(viewUserGrid);
         }
 
