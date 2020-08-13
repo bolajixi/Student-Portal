@@ -179,7 +179,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollegeController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\FacultyRankController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegisterCourseController.cs" />
@@ -236,17 +236,30 @@
     <Compile Include="Migrations\202008121000380_added college.Designer.cs">
       <DependentUpon>202008121000380_added college.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008121625293_remove faculty rank.cs" />
+    <Compile Include="Migrations\202008121625293_remove faculty rank.Designer.cs">
+      <DependentUpon>202008121625293_remove faculty rank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008121811149_added foreign keys.cs" />
+    <Compile Include="Migrations\202008121811149_added foreign keys.Designer.cs">
+      <DependentUpon>202008121811149_added foreign keys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008121840571_change display name.cs" />
+    <Compile Include="Migrations\202008121840571_change display name.Designer.cs">
+      <DependentUpon>202008121840571_change display name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\College.cs" />
     <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\FacultyAndRank.cs" />
-    <Compile Include="Models\FacultyRank.cs" />
+    <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RegisterCourse.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\Salary.cs" />
+    <Compile Include="Models\SalaryStructure.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Models\ViewUserGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -488,11 +501,6 @@
     <Content Include="Views\ViewUser\RegisterStudent.cshtml" />
     <Content Include="Views\ViewUser\RegisterFaculty.cshtml" />
     <Content Include="Views\Account\AccessDenied.cshtml" />
-    <Content Include="Views\FacultyRank\Create.cshtml" />
-    <Content Include="Views\FacultyRank\Delete.cshtml" />
-    <Content Include="Views\FacultyRank\Details.cshtml" />
-    <Content Include="Views\FacultyRank\Edit.cshtml" />
-    <Content Include="Views\FacultyRank\Index.cshtml" />
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Shared\_CustomLayout2.cshtml" />
     <Content Include="Views\Manage\Settings.cshtml" />
@@ -501,6 +509,11 @@
     <Content Include="Views\College\Details.cshtml" />
     <Content Include="Views\College\Edit.cshtml" />
     <Content Include="Views\College\Index.cshtml" />
+    <Content Include="Views\Departments\Create.cshtml" />
+    <Content Include="Views\Departments\Delete.cshtml" />
+    <Content Include="Views\Departments\Details.cshtml" />
+    <Content Include="Views\Departments\Edit.cshtml" />
+    <Content Include="Views\Departments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -521,12 +534,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005021329380_Course.resx">
       <DependentUpon>202005021329380_Course.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021652366_registerstamp.resx">
       <DependentUpon>202005021652366_registerstamp.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005052123050_v1.resx">
       <DependentUpon>202005052123050_v1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005071827568_v11.resx">
       <DependentUpon>202005071827568_v11.cs</DependentUpon>
@@ -554,6 +570,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008121000380_added college.resx">
       <DependentUpon>202008121000380_added college.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008121625293_remove faculty rank.resx">
+      <DependentUpon>202008121625293_remove faculty rank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008121811149_added foreign keys.resx">
+      <DependentUpon>202008121811149_added foreign keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008121840571_change display name.resx">
+      <DependentUpon>202008121840571_change display name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
