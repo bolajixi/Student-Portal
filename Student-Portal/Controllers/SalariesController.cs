@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Student_Portal.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Student_Portal.Controllers
 {
@@ -19,8 +20,18 @@ namespace Student_Portal.Controllers
         [AccessDeniedAuthorize(Roles = "Admin, Assistant Professor, Associate Professor, Full Professor, Instructor, Faculty, Non-teaching Staff")]
         public async Task<ActionResult> Index()
         {
-            var salaries = db.Salaries.Include(s => s.SalaryStructure);
-            return View(await salaries.ToListAsync());
+            if (User.IsInRole("Admin"))
+            {
+                var salaries = db.Salaries.Include(s => s.SalaryStructure);
+                return View(await salaries.ToListAsync());
+            }
+            else
+            {
+                var userName = this.User.Identity.Name;
+                var structure = db.Salaries.FirstOrDefault(m => m.Username == userName); 
+                return View("Salary", structure);
+            }
+            
         }
 
         // GET: Salaries/Details/5
