@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace Student_Portal.Controllers
 {
+    [AccessDeniedAuthorize(Roles ="Admin")]
     public class SalaryStructuresController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
