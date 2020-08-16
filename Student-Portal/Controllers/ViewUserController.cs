@@ -102,6 +102,7 @@ namespace Student_Portal.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
+            list.RemoveRange(4, 2);
             ViewBag.Roles = list;
             return View(viewUserGrid);
         }
@@ -153,7 +154,7 @@ namespace Student_Portal.Controllers
         // POST: ViewUser/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id, FormCollection collection)
+        public async Task<ActionResult> DeleteConfirmed(string id)
         {
             if (ModelState.IsValid)
             {
@@ -162,15 +163,15 @@ namespace Student_Portal.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                var user = await _userManager.FindByIdAsync(id);
+                var user = await UserManager.FindByIdAsync(id);
                 var logins = user.Logins;
-                var rolesForUser = await _userManager.GetRolesAsync(id);
+                var rolesForUser = await UserManager.GetRolesAsync(id);
 
                 using (var transaction = db.Database.BeginTransaction())
                 {
                     foreach (var login in logins.ToList())
                     {
-                        await _userManager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+                        await UserManager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
                     }
 
                     if (rolesForUser.Count() > 0)
@@ -178,11 +179,11 @@ namespace Student_Portal.Controllers
                         foreach (var item in rolesForUser.ToList())
                         {
                             // item should be the name of the role
-                            var result = await _userManager.RemoveFromRoleAsync(user.Id, item);
+                            var result = await UserManager.RemoveFromRoleAsync(user.Id, item);
                         }
                     }
 
-                    await _userManager.DeleteAsync(user);
+                    await UserManager.DeleteAsync(user);
                     transaction.Commit();
                 }
 
@@ -259,6 +260,7 @@ namespace Student_Portal.Controllers
             foreach (var rolee in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             ViewBag.Roles = list;
+            ViewBag.StructId = new SelectList(db.SalaryStructures, "Id", "Role");
             list.RemoveRange(4, 2);
             return View();
         }
@@ -291,6 +293,40 @@ namespace Student_Portal.Controllers
                 {
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleeName);
                     ViewBag.FacultySuccess = "Successfully Created "+ user.Firstname+ "as a faculty member.";
+
+                    SalaryStructure structure = (SalaryStructure)db.SalaryStructures.First(m => m.Id == model.StructId);
+
+                    var salary = new Salary
+                    {
+                        Username = model.Email,
+                        Role = model.RoleeName,
+                        BaseSalary = structure.BaseSalary,
+                        PayWidth = structure.PayWidth,
+                        MinPay = structure.MinPay,
+                        MaxPay = structure.MaxPay,
+                        Allowance = structure.Allowance,
+                        Housing = structure.Housing,
+                        Medicals = structure.Medicals,
+                        Tax = structure.Tax,
+                        Pension = structure.Pension,
+                        NetSalary = structure.NetSalary,
+                        StructId = structure.Id
+                    };
+
+                    db.Salaries.Add(salary);
+                    db.SaveChanges();
+
+
+                    //List<Salary> struu = new List<Salary>();
+
+                    //var Role = model.RoleeName;
+                    //var Username = model.Email;
+                    //struu.Add(stru);
+
+
+
+                    //db.Salaries.Add(salary);
+                    //await db.SaveChangesAsync();
                     return RedirectToAction("Index", "ViewUser");
                 }
                 AddErrors(result);
@@ -300,7 +336,7 @@ namespace Student_Portal.Controllers
                 list.Add(new SelectListItem() { Value = rolee.Name, Text = rolee.Name });
             list.RemoveRange(4, 2);
             ViewBag.Roles = list;
-
+            ViewBag.StructId = new SelectList(db.SalaryStructures, "Id", "Role", model.StructId);
             //ViewBag.Ranks = new SelectList(db.FacultyRanks, "Id", "Rank");
 
             return View(model);
