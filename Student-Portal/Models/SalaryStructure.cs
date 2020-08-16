@@ -14,13 +14,17 @@ namespace Student_Portal.Models
         [Column("StructId")]
         public int Id { get; set; }
 
+        [Required]
+        [Display(Name = "Role")]
+        public string Role { get; set; }
+
 
         [Required]
         [Display(Name ="Base Salary"), DataType(DataType.Currency)]
         public decimal BaseSalary { get; set; }
 
         [Required, Display(Name ="(%) Pay Width")]
-        [Range(1, 20, ErrorMessage = "Enter a percentage between 1 and 20")]
+        [Range(1, 60, ErrorMessage = "Enter a percentage between 1 and 20")]
         public float PayWidth { get; set; }
 
         [Required]
@@ -55,8 +59,8 @@ namespace Student_Portal.Models
 
         //------------------------------------------
         [Required]
-        [Display(Name ="Net Salary")]
-        public int NetSalary { get; set; }
+        [Display(Name ="Net Salary"), DataType(DataType.Currency)]
+        public decimal NetSalary { get; set; }
 
         public ICollection<Salary> Salaries { get; set; }
     }
