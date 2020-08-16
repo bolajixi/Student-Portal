@@ -14,9 +14,10 @@ namespace Student_Portal.Models
         public int Id { get; set; }
 
         [Display(Name = "Username")]
-        public int Username { get; set; }
+        public string Username { get; set; }
 
-        [Required, Display(Name ="Current Role")]
+        [Required]
+        [Display(Name = "Current Role")]
         public string Role { get; set; }
 
         [Required]
@@ -58,15 +59,12 @@ namespace Student_Portal.Models
 
         //------------------------------------------
         [Required]
-        [Display(Name = "Net Salary")]
-        public int NetSalary { get; set; }
+        [Display(Name = "Net Salary"), DataType(DataType.Currency)]
+        public decimal NetSalary { get; set; }
 
         [ForeignKey("SalaryStructure")]
         public int StructId { get; set; }
 
         public SalaryStructure SalaryStructure { get; set; }
-
-        [ForeignKey("StructId")]
-        public ICollection<RegisterFacultyViewModel> registerFacultyViewModels { get; set; }
     }
 }
