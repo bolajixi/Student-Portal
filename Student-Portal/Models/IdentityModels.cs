@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -22,6 +23,11 @@ namespace Student_Portal.Models
         public string Institution { get; set; }
         public string Program { get; set; }
         public string YearOfJoining { get; set; }
+
+        [ForeignKey("SalaryStructure")]
+        public int? StructId { get; set; }
+
+        public virtual SalaryStructure SalaryStructure { get; set; }
 
 
         //public enum Gender
@@ -72,6 +78,10 @@ namespace Student_Portal.Models
         public System.Data.Entity.DbSet<Student_Portal.Models.College> Colleges { get; set; }
 
         public System.Data.Entity.DbSet<Student_Portal.Models.Departments> Departments { get; set; }
+
+        public System.Data.Entity.DbSet<Student_Portal.Models.SalaryStructure> SalaryStructures { get; set; }
+
+        public System.Data.Entity.DbSet<Student_Portal.Models.Salary> Salaries { get; set; }
 
         //public System.Data.Entity.DbSet<Student_Portal.Models.ViewUserGrid> ViewUserGrids { get; set; }
 
