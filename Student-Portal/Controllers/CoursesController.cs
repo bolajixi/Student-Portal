@@ -85,10 +85,12 @@ namespace Student_Portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit,DepartmentID")] Course course)
+        //public async Task<ActionResult> Edit([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit,DepartmentID")] Course course)
+        public async Task<ActionResult> Edit([Bind(Include = "CourseId,CourseName,CourseCode,CourseUnit,DepartmentID")] Course course, int id)
         {
             if (ModelState.IsValid)
             {
+                course.Id = id;
                 db.Entry(course).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
