@@ -16,6 +16,7 @@ namespace Student_Portal.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Salaries
+        [AccessDeniedAuthorize(Roles = "Admin, Assistant Professor, Associate Professor, Full Professor, Instructor, Faculty, Non-teaching Staff")]
         public async Task<ActionResult> Index()
         {
             var salaries = db.Salaries.Include(s => s.SalaryStructure);
@@ -37,6 +38,7 @@ namespace Student_Portal.Controllers
             return View(salary);
         }
 
+        [AccessDeniedAuthorize(Roles = "Admin")]
         // GET: Salaries/Create
         public ActionResult Create()
         {
@@ -49,6 +51,7 @@ namespace Student_Portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AccessDeniedAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind(Include = "Id,Username,Role,BaseSalary,PayWidth,MinPay,MaxPay,Allowance,Housing,Medicals,Tax,Pension,NetSalary,StructId")] Salary salary)
         {
             if (ModelState.IsValid)
@@ -63,6 +66,7 @@ namespace Student_Portal.Controllers
         }
 
         // GET: Salaries/Edit/5
+        [AccessDeniedAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,6 +87,7 @@ namespace Student_Portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AccessDeniedAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Username,Role,BaseSalary,PayWidth,MinPay,MaxPay,Allowance,Housing,Medicals,Tax,Pension,NetSalary,StructId")] Salary salary)
         {
             if (ModelState.IsValid)
@@ -96,6 +101,7 @@ namespace Student_Portal.Controllers
         }
 
         // GET: Salaries/Delete/5
+        [AccessDeniedAuthorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -113,6 +119,7 @@ namespace Student_Portal.Controllers
         // POST: Salaries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AccessDeniedAuthorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Salary salary = await db.Salaries.FindAsync(id);
