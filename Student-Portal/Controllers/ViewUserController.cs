@@ -316,17 +316,6 @@ namespace Student_Portal.Controllers
                     db.Salaries.Add(salary);
                     db.SaveChanges();
 
-
-                    //List<Salary> struu = new List<Salary>();
-
-                    //var Role = model.RoleeName;
-                    //var Username = model.Email;
-                    //struu.Add(stru);
-
-
-
-                    //db.Salaries.Add(salary);
-                    //await db.SaveChangesAsync();
                     return RedirectToAction("Index", "ViewUser");
                 }
                 AddErrors(result);
