@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Student_Portal.Models
 {
@@ -300,7 +301,9 @@ namespace Student_Portal.Models
         [Display(Name = "Year of Joining")]
         public string YearOfJoining { get; set; }
 
-        public virtual Salary Salary { get; set; }
+        public int? StructId { get; set; }
+
+        //public virtual SalaryStructure SalaryStructure { get; set; }
     }
 
     public class ResetPasswordViewModel
