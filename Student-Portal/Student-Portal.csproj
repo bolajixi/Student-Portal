@@ -184,6 +184,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegisterCourseController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SalariesController.cs" />
+    <Compile Include="Controllers\SalaryStructuresController.cs" />
     <Compile Include="Controllers\ViewUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,6 +249,18 @@
     <Compile Include="Migrations\202008121840571_change display name.cs" />
     <Compile Include="Migrations\202008121840571_change display name.Designer.cs">
       <DependentUpon>202008121840571_change display name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008131652063_salary structure role.cs" />
+    <Compile Include="Migrations\202008131652063_salary structure role.Designer.cs">
+      <DependentUpon>202008131652063_salary structure role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008131705264_inceased range.cs" />
+    <Compile Include="Migrations\202008131705264_inceased range.Designer.cs">
+      <DependentUpon>202008131705264_inceased range.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008140635036_added currency data type for net salary.cs" />
+    <Compile Include="Migrations\202008140635036_added currency data type for net salary.Designer.cs">
+      <DependentUpon>202008140635036_added currency data type for net salary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
@@ -514,6 +528,17 @@
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Departments\Index.cshtml" />
+    <Content Include="Views\SalaryStructures\Create.cshtml" />
+    <Content Include="Views\SalaryStructures\Delete.cshtml" />
+    <Content Include="Views\SalaryStructures\Details.cshtml" />
+    <Content Include="Views\SalaryStructures\Edit.cshtml" />
+    <Content Include="Views\SalaryStructures\Index.cshtml" />
+    <Content Include="Views\Salaries\Create.cshtml" />
+    <Content Include="Views\Salaries\Delete.cshtml" />
+    <Content Include="Views\Salaries\Details.cshtml" />
+    <Content Include="Views\Salaries\Edit.cshtml" />
+    <Content Include="Views\Salaries\Index.cshtml" />
+    <Content Include="Views\Salaries\Salary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -579,6 +604,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008121840571_change display name.resx">
       <DependentUpon>202008121840571_change display name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008131652063_salary structure role.resx">
+      <DependentUpon>202008131652063_salary structure role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008131705264_inceased range.resx">
+      <DependentUpon>202008131705264_inceased range.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008140635036_added currency data type for net salary.resx">
+      <DependentUpon>202008140635036_added currency data type for net salary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
