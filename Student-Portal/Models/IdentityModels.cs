@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace Student_Portal.Models
         public int? StructId { get; set; }
 
         public virtual SalaryStructure SalaryStructure { get; set; }
+
+        public virtual Course Course { get; set; }
 
 
         //public enum Gender

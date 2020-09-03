@@ -303,6 +303,8 @@ namespace Student_Portal.Models
 
         public int? StructId { get; set; }
 
+        //public virtual ICollection<Course> Courses { get; set; }
+
         //public virtual SalaryStructure SalaryStructure { get; set; }
     }
 
