@@ -81,18 +81,32 @@ namespace Student_Portal.Controllers
             List<Course> Course = db.Course.ToList();
             List<RegisterCourse> RegisterCourse = db.RegisterCourse.ToList();
 
-            var RegisteredCourse = from r in RegisterCourse
+            ApproveViewModel approveViewModel = new ApproveViewModel();
+
+            var UnappovedCourses = from r in RegisterCourse
                                    join c in Course on r.CourseId equals c.Id
-                                   where r.UserId == User.Identity.GetUserId()
+                                   where r.UserId == User.Identity.GetUserId() && r.ApprovalStatus == false
                                    orderby r.CourseId ascending
-                                   select new ViewModel
+                                   select new UnappovedCoursesModel
                                    {
                                        CourseName = c.CourseName,
                                        CourseCode = c.CourseCode,
                                        CourseUnit = c.CourseUnit,
                                    };
+            var AppovedCourses = from r in RegisterCourse
+                                   join c in Course on r.CourseId equals c.Id
+                                   where r.UserId == User.Identity.GetUserId() && r.ApprovalStatus == true
+                                   orderby r.CourseId ascending
+                                   select new AppovedCoursesModel
+                                   {
+                                       CourseName = c.CourseName,
+                                       CourseCode = c.CourseCode,
+                                       CourseUnit = c.CourseUnit,
+                                   };
+            approveViewModel.UnappovedCourses = UnappovedCourses;
+            approveViewModel.AppovedCourses = AppovedCourses;
             ViewBag.RegSuccess = TempData["RegSuccess"] as string;
-            return View(RegisteredCourse);
+            return View(approveViewModel);
 
         }
     }
