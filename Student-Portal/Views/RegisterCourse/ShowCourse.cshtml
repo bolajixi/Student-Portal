@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Student_Portal.Models.ViewModel>
+﻿@model Student_Portal.Models.ApproveViewModel
 
 @{
     ViewBag.Title = "Registered Courses";
@@ -16,10 +16,11 @@
     <div class="col-lg-9 mt-5">
         <div class="card">
             <div class="card-body">
-                <p>Total number of Registered Course: @Model.Count()</p>
-                <p>Total Units Registered: @Model.Sum(i => i.CourseUnit)</p>
+                <h4>Unpproved Courses</h4>
+                <p>Total number of Registered Course: @Model.UnappovedCourses.Count()</p>
+                <p>Total Units Registered: @Model.UnappovedCourses.Sum(i => i.CourseUnit)</p>
                 <br />
-                @if (Model.Count() == 0)
+                @if (Model.UnappovedCourses.Count() == 0)
                 {
                     <p>You have not registered any courses. Click @Html.ActionLink("here", "Index", "RegisterCourse") to register a course.</p>
                 }
@@ -29,18 +30,71 @@
                     <table class="table">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.CourseName)
+                                @*@Html.DisplayNameFor(model => model.CourseName)*@
+                                Course Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.CourseCode)
+                                @*@Html.DisplayNameFor(model => model.CourseCode)*@
+                                Course Code
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.CourseUnit)
+                                @*@Html.DisplayNameFor(model => model.CourseUnit)*@
+                                Course Unit
                             </th>
                             <th></th>
                         </tr>
 
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.UnappovedCourses)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseUnit)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4>Approved Courses</h4>
+                <br />
+                @if (Model.AppovedCourses.Count() == 0)
+                {
+                    <p>You currently don't have any approved  courses. Please checkback later.</p>
+                }
+                else
+                {
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @*@Html.DisplayNameFor(model => model.CourseName)*@
+                                Course Name
+                            </th>
+                            <th>
+                                @*@Html.DisplayNameFor(model => model.CourseCode)*@
+                                Course Code
+                            </th>
+                            <th>
+                                @*@Html.DisplayNameFor(model => model.CourseUnit)*@
+                                Course Unit
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model.AppovedCourses)
                         {
                             <tr>
                                 <td>
