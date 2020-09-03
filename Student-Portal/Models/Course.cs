@@ -33,5 +33,7 @@ namespace Student_Portal.Models
         [Display(Name = "Department Name")]
         public int DepartmentID { get; set; }
         public virtual Departments Departments { get; set; }
+
+        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

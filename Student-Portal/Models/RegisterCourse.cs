@@ -21,8 +21,16 @@ namespace Student_Portal.Models
 
         public string UserId { get; set; }
 
-        public String EnrollmentDate { get; set; }
+        public string EnrollmentDate { get; set; }
+
+        [Required]
+        public bool ApprovalStatus { get; set; }
+
+        public string ApprovalDate { get; set; }
+
+        public string ApprovedBy { get; set; }
 
         public Course Course { get; set; }
+
     }
 }
