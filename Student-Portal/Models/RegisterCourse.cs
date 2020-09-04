@@ -19,6 +19,7 @@ namespace Student_Portal.Models
         [Display(Name = "Course Name")]
         public int CourseId { get; set; }
 
+        [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
 
         public string EnrollmentDate { get; set; }
@@ -31,6 +32,8 @@ namespace Student_Portal.Models
         public string ApprovedBy { get; set; }
 
         public Course Course { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }

@@ -34,6 +34,9 @@ namespace Student_Portal.Models
         public int DepartmentID { get; set; }
         public virtual Departments Departments { get; set; }
 
-        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public int FacultyId { get; set; }
+
+        public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
     }
 }
