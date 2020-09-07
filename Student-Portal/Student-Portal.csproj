@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollegeController.cs" />
+    <Compile Include="Controllers\CourseParticipantsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -266,11 +267,16 @@
     <Compile Include="Migrations\202009031640282_Add approval status.Designer.cs">
       <DependentUpon>202009031640282_Add approval status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009041610226_Add foreign key to course.cs" />
+    <Compile Include="Migrations\202009041610226_Add foreign key to course.Designer.cs">
+      <DependentUpon>202009041610226_Add foreign key to course.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Custom Attribute\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\College.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseParticipantsViewModel.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -543,6 +549,8 @@
     <Content Include="Views\Salaries\Edit.cshtml" />
     <Content Include="Views\Salaries\Index.cshtml" />
     <Content Include="Views\Salaries\Salary.cshtml" />
+    <Content Include="Views\CourseParticipants\Index.cshtml" />
+    <Content Include="Views\CourseParticipants\Approval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -620,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009031640282_Add approval status.resx">
       <DependentUpon>202009031640282_Add approval status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041610226_Add foreign key to course.resx">
+      <DependentUpon>202009041610226_Add foreign key to course.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
