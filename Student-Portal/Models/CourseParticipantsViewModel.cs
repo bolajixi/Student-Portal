@@ -6,18 +6,6 @@ using System.Web;
 
 namespace Student_Portal.Models
 {
-    public class UnapprovedStudents
-    {
-        [Display(Name = "Student Name")]
-        public string StudentName { get; set; }
-
-        [Display(Name = "Course Code")]
-        public string CourseCode { get; set; }
-
-        [Display(Name = "Enrollment Date")]
-        public string EnrollmentDate { get; set; }
-    }
-
     public class ApprovedStudents
     {
         [Display(Name = "Student Name")]
