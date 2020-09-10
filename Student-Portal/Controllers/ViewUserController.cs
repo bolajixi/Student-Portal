@@ -109,6 +109,7 @@ namespace Student_Portal.Controllers
 
         // POST: ViewUser/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(string id, ApplicationUser model, RoleViewModel roleModel)
         {
             try
