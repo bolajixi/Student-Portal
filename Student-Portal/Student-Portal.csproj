@@ -435,6 +435,8 @@
     <Content Include="Content\images\team\team-author3.jpg" />
     <Content Include="Content\images\team\team-author4.jpg" />
     <Content Include="Content\images\team\team-author5.jpg" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -467,6 +469,8 @@
     <Content Include="Content2\lib\ionicons\fonts\ionicons.woff2" />
     <Content Include="Content2\lib\owlcarousel\LICENSE" />
     <Content Include="Content2\lib\popper\popper.min.js.map.json" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -488,6 +492,8 @@
     <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\vendor\jquery-2.2.4.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Web.config" />

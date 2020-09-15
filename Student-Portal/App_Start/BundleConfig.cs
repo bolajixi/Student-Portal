@@ -21,10 +21,12 @@ namespace Student_Portal
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/toastr.js",
                       "~/Scripts/bootbox.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-spacelab.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
 
             #region Template design
