@@ -42,6 +42,7 @@ namespace Student_Portal.Controllers
             List<RoleViewModel> list = new List<RoleViewModel>();
             foreach (var role in RoleManager.Roles)
                 list.Add(new RoleViewModel(role));
+            ViewBag.ToastNotification = TempData["RoleStatus"];
             return View(list);
         }
 
@@ -55,6 +56,8 @@ namespace Student_Portal.Controllers
         {
             var role = new ApplicationRole() { Name = model.Name };
             await RoleManager.CreateAsync(role);
+
+            TempData["RoleStatus"] = $"success(`Successfully created role: {model.Name}`)";
             return RedirectToAction("Index");
         }
 
@@ -69,6 +72,8 @@ namespace Student_Portal.Controllers
         {
             var role = new ApplicationRole() { Id = model.Id, Name = model.Name };
             await RoleManager.UpdateAsync(role);
+
+            TempData["RoleStatus"] = $"success(`Updated role to: {model.Name}`)";
             return RedirectToAction("Index");
         }
 
@@ -89,6 +94,8 @@ namespace Student_Portal.Controllers
         {
             var role = await RoleManager.FindByIdAsync(id);
             await RoleManager.DeleteAsync(role);
+
+            TempData["RoleStatus"] = "success(`Role deleted`)";
             return RedirectToAction("Index");
         }
     }

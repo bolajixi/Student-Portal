@@ -48,3 +48,9 @@
         </div>
     </div>
 </div>
+@if (ViewBag.ToastNotification != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(ViewBag.ToastNotification);
+    </script>
+}
