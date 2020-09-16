@@ -42,7 +42,9 @@ namespace Student_Portal
                         "~/Scripts/line-chart.js",
                         "~/Scripts/pie-chart.js",
                         "~/Scripts/plugins.js",
-                        "~/Scripts/scripts.js"));
+                        "~/Scripts/toastr.js",
+                        "~/Scripts/scripts.js",
+                        "~/Scripts/bootbox.js"));
 
             bundles.Add(new StyleBundle("~/template/css").Include(
                       "~/Content/css/bootstrap.min.css",
@@ -54,6 +56,7 @@ namespace Student_Portal
                       "~/Content/css/typography.css",
                       "~/Content/css/default-css.css",
                       "~/Content/css/styles.css",
+                      "~/Content/toastr.css",
                       "~/Content/css/responsive.css"));
 
             bundles.Add(new ScriptBundle("~/template2/js").Include(
