@@ -21,8 +21,7 @@ namespace Student_Portal
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/toastr.js",
-                      "~/Scripts/bootbox.js"));
+                      "~/Scripts/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-spacelab.css",
@@ -43,8 +42,7 @@ namespace Student_Portal
                         "~/Scripts/pie-chart.js",
                         "~/Scripts/plugins.js",
                         "~/Scripts/toastr.js",
-                        "~/Scripts/scripts.js",
-                        "~/Scripts/bootbox.js"));
+                        "~/Scripts/scripts.js"));
 
             bundles.Add(new StyleBundle("~/template/css").Include(
                       "~/Content/css/bootstrap.min.css",
