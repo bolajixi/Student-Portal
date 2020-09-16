@@ -20,7 +20,7 @@ namespace Student_Portal.Controllers
         public ActionResult Index()
         {
             ViewBag.Course = new SelectList(db.Course, "Id", "CourseName");
-            ViewBag.RegError = TempData["ErrorMessage"] as string;
+            ViewBag.ToastNotification = TempData["RegStatus"];
             return View();
         }
 
@@ -38,14 +38,16 @@ namespace Student_Portal.Controllers
                     db.RegisterCourse.Add(cour);
                     await db.SaveChangesAsync();
                     ViewBag.Course = new SelectList(db.Course, "CourseId", "CourseName");
-                    TempData["RegSuccess"] = "Course Successfully registered.";
+                    //TempData["RegStatus"] = "Course Successfully registered.";
+                    TempData["RegStatus"] = "success(`Course Successfully registered`)";
                     return RedirectToAction("ShowCourse");
                 }
                 else
                 {
                     //ModelState.AddModelError("error", "You have already registered this course");
                     ViewBag.Course = new SelectList(db.Course, "CourseId", "CourseName");
-                    TempData["ErrorMessage"] = "You have already registered this course";
+                    //TempData["RegStatus"] = "You have already registered this course";
+                    TempData["RegStatus"] = "warning(`You have already registered this course`)";
                     return RedirectToAction("index");
                 }
                 
@@ -105,7 +107,7 @@ namespace Student_Portal.Controllers
                                    };
             approveViewModel.UnappovedCourses = UnappovedCourses;
             approveViewModel.AppovedCourses = AppovedCourses;
-            ViewBag.RegSuccess = TempData["RegSuccess"] as string;
+            ViewBag.ToastNotification = TempData["RegStatus"];
             return View(approveViewModel);
 
         }

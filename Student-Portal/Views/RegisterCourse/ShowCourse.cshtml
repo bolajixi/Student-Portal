@@ -3,15 +3,6 @@
 @{
     ViewBag.Title = "Registered Courses";
 }
-@if (ViewBag.RegSuccess != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Yayyy!</strong> The course was successfully registered.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span class="fa fa-times"></span>
-        </button>
-    </div>
-}
 <div class="row">
     <div class="col-lg-8 col-ml-12">
         <div class="col-12 mt-5">
@@ -146,3 +137,9 @@
         </div>
     </div>
 </div>
+@if (ViewBag.ToastNotification != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(ViewBag.ToastNotification);
+    </script>
+}
