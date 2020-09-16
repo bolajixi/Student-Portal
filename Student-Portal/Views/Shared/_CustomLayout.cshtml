@@ -43,17 +43,6 @@
         function warning(stat = '') {
             toastr.warning(`${stat ? stat : "An error occured"}`, "Oops!!");
         };
-
-        //$(document).ready(function () {
-        //    function success(stat = '') {
-        //        toastr.success(`${stat ? stat : "Successfully recoded value"}`, "Success");
-        //    };
-        //    function warning(stat = '') {
-        //        toastr.warning(`${stat ? stat : "An error occured"}`, "Oops!!");
-        //    };
-            //toastr.success("This is a success message", "Success");
-            //bootbox.alert("Your message here…");
-        //});
     </script>
 
     <!-- modernizr css -->
@@ -540,8 +529,8 @@
     <!-- offset area end -->
 
     @Scripts.Render("~/template/js")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lib")
+   
     @RenderSection("scripts", required: false)
 
 
