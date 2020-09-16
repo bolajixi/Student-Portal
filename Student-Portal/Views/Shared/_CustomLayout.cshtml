@@ -16,6 +16,46 @@
     @Styles.Render("~/template/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="/Scripts/toastr.js"></script>
+
+    <script type="text/javascript">
+        toastr.options = {
+            "closeButton": true,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "600",
+            "hideDuration": "1000",
+            "timeOut": "0",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function success(stat = '') {
+            toastr.success(`${stat ? stat : "Successfully recoded value"}`, "Success");
+        };
+        function warning(stat = '') {
+            toastr.warning(`${stat ? stat : "An error occured"}`, "Oops!!");
+        };
+
+        //$(document).ready(function () {
+        //    function success(stat = '') {
+        //        toastr.success(`${stat ? stat : "Successfully recoded value"}`, "Success");
+        //    };
+        //    function warning(stat = '') {
+        //        toastr.warning(`${stat ? stat : "An error occured"}`, "Oops!!");
+        //    };
+            //toastr.success("This is a success message", "Success");
+            //bootbox.alert("Your message here…");
+        //});
+    </script>
+
     <!-- modernizr css -->
     @*<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>*@
 </head>
@@ -505,32 +545,7 @@
     @RenderSection("scripts", required: false)
 
 
-    <script type="text/javascript">
-        toastr.options = {
-            "closeButton": true,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-center",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "600",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
 
-        $(document).ready(function () {
-            function success() {
-                toastr.success("This is a success message", "Success");
-            };
-            toastr.success("This is a success message", "Success");
-            //bootbox.alert("Your message here…");
-        });
-    </script>
 </body>
 
 </html>
