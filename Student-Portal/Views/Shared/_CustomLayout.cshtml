@@ -52,9 +52,9 @@
                                 if (User.IsInRole("Admin"))
                                 {
                                     @*<li>@Html.ActionLink("Roles", "Index", "Role")</li>
-                <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
-                <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
+                                        <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                                        <li>@Html.ActionLink("View Users", "Index", "ViewUser")</li>
+                                        <li>@Html.ActionLink("Faculty Ranks", "Index", "FacultyRank")</li> }*@
                                     <li><a href="/College"><i class="fa fa-university"></i><span>Colleges</span></a></li>
                                     <li><a href="/Departments"><i class="fa fa-building-o"></i><span>Departments</span></a></li>
 
@@ -503,6 +503,34 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <script type="text/javascript">
+        toastr.options = {
+            "closeButton": true,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "600",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $(document).ready(function () {
+            function success() {
+                toastr.success("This is a success message", "Success");
+            };
+            toastr.success("This is a success message", "Success");
+            //bootbox.alert("Your message here…");
+        });
+    </script>
 </body>
 
 </html>
