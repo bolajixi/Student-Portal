@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace Student_Portal.Controllers
 {
+    [OutputCache(Duration = 60)]
     public class HomeController : Controller
     {
+        [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
         public ActionResult Index()
         {
             return View();
